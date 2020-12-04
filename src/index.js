@@ -238,9 +238,9 @@ const App = () => {
    const value='<script> alert("") </script>'
 
    const todoData=[
-       {label:'Drink Cofee', important:false},
-       {label:'Make Awesome App', important:true},
-       {label:'Have a lunch', important:false},
+       {label:'Drink Cofee', important:false, id:1},
+       {label:'Make Awesome App', important:true, id:2},
+       {label:'Have a lunch', important:false, id:3},
    ];
 
   return ( <div>
@@ -516,7 +516,44 @@ const App = () => {
      */}
 
 // 31. Коллекции и ключи   
-   
+
+//   Чтобы не было ошибки- добавляем уникальный ключ key 
+// (обычно приходит с сервера) в  todolist.js  <li key={item.id}>
+// В данном приложении- id приходит из компонента <app/>,
+// который находится в index.js
+
+//const todoData=[
+//   {label:'Drink Cofee', important:false, id:1},
+//   {label:'Make Awesome App', important:true, id:2},
+//   {label:'Have a lunch', important:false, id:3},
+// ];
+
+
+// Когда добавляем ключ для элемента- при добавлении элементов сравниваются уже их
+// ключи, а не элементы, и перерисовка приложения пойдет быстрее. 
+
+// В качестве ключа лучше использовать не индекс элемента
+
+// Если id не хотим передавать дпльше в компоненты: 
+//   {/*            
+// Из массива объектов item извлекаем 
+// массив с id и массив с лстальными объектами
+//   */}
+
+// const { id, ...itemProps} = item;
+
+// используем извлеченный объект:
+// <TodoListItem {...itemProps} />
+
+// Каждому JSX элементу в массиве нужно свойство key
+
+
+// 32 Как импортировать css
+
+// Подключим bootstrap через cdn. 
+
+
+
 
 
 ReactDOM.render(<App/>,document.getElementById('root'));

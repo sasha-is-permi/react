@@ -29,7 +29,7 @@ import TodoListItem from './todo-list-item'
 // свойство todos
    const TodoList = ({todos}) => {
     //  Не JSX	
-    const item = ['1) Learn React','2) Build Awesome App'];
+  //  const item = ['1) Learn React','2) Build Awesome App'];
     // JSX
     // <li> {item[0]} </li> <li> {item[1]} </li>
     // Еще в TodoList передали значения < TodoList items={['Item 1','Item 2']}/>
@@ -64,8 +64,17 @@ import TodoListItem from './todo-list-item'
    // которые создаем внутри map
 
    const elements = todos.map((item) => {
+     
+
+     {/*            
+         Из массива объектов item извлекаем 
+         массив с id и массив с лстальными объектами
+   */}
+
+     const { id, ...itemProps} = item;
+
      return (
-      <li>
+      <li key={id}>
 
 
          {/*
@@ -86,8 +95,9 @@ import TodoListItem from './todo-list-item'
           аттрибута вместе со значением в item
 
          */}
-         
-         <TodoListItem {...item} />
+  
+
+         <TodoListItem {...itemProps} />
 
       </li>
             );

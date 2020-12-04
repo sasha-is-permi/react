@@ -2,7 +2,7 @@
 //Восстановить каталог node_modules
 //Комманда npm install
 
-https://github.com/sasha-is-permi/vue.js
+https://github.com/sasha-is-permi/react
 
 // надо представиться если не представлялись. Один раз после создания проекта
 // Информация записывается в .git/config
@@ -17,7 +17,7 @@ git commit -m "first commit"
 
 // Только первый раз при создании.
 // Информация записывается в .git/config
-git remote add origin https://github.com/sasha-is-permi/vue.js
+git remote add origin https://github.com/sasha-is-permi/react
 // Посылаем файлы проекта на github
 // В следующий раз можно посылать файлы более простой командой:
 // git push
