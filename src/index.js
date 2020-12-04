@@ -552,8 +552,21 @@ const App = () => {
 
 // Подключим bootstrap через cdn. 
 
-  
+// https://www.bootstrapcdn.com
+
+// https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css
 
 
+// В  public/index.html вставляем эту ссылку. 
+// Также подключаем возможность иконок:
+
+// Разные иконки: 
+// https://www.bootstrapcdn.com/fontawesome
+
+// https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+
+
+// Используем для списков list-group и list-group-item - классы bootstrap, 
+// и todo-list- собственный класс- сделать отступ от заголовка до списка.
 
 ReactDOM.render(<App/>,document.getElementById('root'));
