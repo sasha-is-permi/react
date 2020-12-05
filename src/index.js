@@ -1,14 +1,15 @@
-// 24. React элементы
-// Подключаем библиотеки React и React DOM
-// react должен называться React чтобы babel смог его использовать.
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// Импортируем компоненты из файлов
-// Расширение файлов js будет подставленно автоматически
-import AppHeader from './components/app-header';
-import SearchPanel from './components/search-panel'
-import TodoList from './components/todo-list'
+import App from './components/app';
+
+
+
+// 24. React элементы
+// Подключаем библиотеки React и React DOM
+// react должен называться React чтобы babel смог его использовать.
+
 
 // Создаем React элемент с помощью JSX
 // c помощью babel превращается в обычный javascript
@@ -162,7 +163,7 @@ const App = () => {
 
 // Можно создать JSX-компонент как внутри компонента app,
 // так и вне него
-const SearchPanel3 = () => {
+{/* const SearchPanel3 = () => {
    // Можно создавать одинаковые по именам константы в разных
    // элементах- они автономны
    const searchText = 'Type hear to search2'; 
@@ -186,13 +187,13 @@ const SearchPanel3 = () => {
 
 const App = () => {
 
-   const isLoggedIn = true;
+const isLoggedIn = true;  
 
    //  Можем вставлять одни react-элементы в другие.
    //  Есть react-элемент
   const loginBox = <span> Log in please </span> 
   // react-элемент (JSX)
-  const welcomeBox = <span> hello </span>
+  const welcomeBox = <span> hello </span>*/}
 
 // Без скобок можно записать return когда одна строчка
 // Используем фигурные скобки чтобы передавать значения атрибутов
@@ -216,13 +217,13 @@ const App = () => {
 // только используя camal case 
 
 
-
+{/*
  const SearchPanel2 = () => {
    const searchText = 'Type hear to search'; 
    return  < input placeholder={searchText}
    autoComplete=""
    tabIndex=""/>; 	
-   };
+   };  */}
 
 // Как html-элементу (например input) передать стиль
 // Нужно передать объект, который описывает css-свойство,
@@ -235,7 +236,7 @@ const App = () => {
    // Если вставим через html эту константу-опасный скрипт может 
    // выполниться, но через JSX- он просто отрисуется (текст)
    // без выполнения (из соображений безопасности)
-   const value='<script> alert("") </script>'
+  {/*  const value='<script> alert("") </script>'
 
    const todoData=[
        {label:'Drink Cofee', important:false, id:1},
@@ -243,7 +244,7 @@ const App = () => {
        {label:'Have a lunch', important:false, id:3},
    ];
 
-  return ( <div>
+return ( <div>  */}
 
 
   {/* Вызываем текущую дату с помощью кусочка javascript
@@ -285,12 +286,12 @@ const App = () => {
            {/*  <br/>
               {value}
            */}
-              < AppHeader /> 
-              < SearchPanel />
+        {/*      < AppHeader /> 
+              < SearchPanel />  */}
          {/* < TodoList items={['Item 1','Item 2']}/> */}
          
          {/* Передаем в компоненту массив в качестве параметра */}
-         <TodoList todos={todoData}/>
+  {/*       <TodoList todos={todoData}/>   */}
 
               {/* < SearchPanel2 />               
               <br/> <br/>
@@ -304,8 +305,8 @@ const App = () => {
                тоже используются такие скобочки */ }
 
               {/*Можно вставлять html-теги */} 
-          </div> );
-};
+    {/*      </div> );
+                     };  */}
 
 // 27. Упражнение
 
@@ -569,4 +570,35 @@ const App = () => {
 // Используем для списков list-group и list-group-item - классы bootstrap, 
 // и todo-list- собственный класс- сделать отступ от заголовка до списка.
 
+// Создадим файл todo-list.css для todo-list.js
+
+// В js-файле: 
+// import './todo-list.css'
+
+// Это возможно благодаря webpack
+
+// договоренность.
+// Элемент с компонентом todo-list возвращает элемент с классом todo-list.css
+
+// И аналогично.
+
+// Переносим файлы в отдельные каталоги.
+// Если приложение покажет ошибку
+
+// 4. Состояние компонентов и обработка событий.
+
+// 34.
+
+// Компоненты-классы. 
+
+
+
+
+
+
 ReactDOM.render(<App/>,document.getElementById('root'));
+
+
+
+
+

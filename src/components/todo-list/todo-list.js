@@ -1,6 +1,17 @@
 import React from 'react';
+
+import TodoListItem from '../todo-list-item';
+import './todo-list.css';
+
+
+
+
+
+{/* import React from 'react';
 // Импортируем содержимое файла js из этого же каталога
 import TodoListItem from './todo-list-item'
+
+import './todo-list.css'  */}
 
 // Тут в TodoList прописано- какие данные выводить
 //const TodoList = () => {
@@ -27,7 +38,7 @@ import TodoListItem from './todo-list-item'
 
 // с помощью деструктуризации достаем из входящего параметра 
 // свойство todos
-   const TodoList = ({todos}) => {
+ {/*  const TodoList = ({todos}) => {  */}
     //  Не JSX	
   //  const item = ['1) Learn React','2) Build Awesome App'];
     // JSX
@@ -63,7 +74,7 @@ import TodoListItem from './todo-list-item'
    // Элементы этого массива- это jsx-элементы,
    // которые создаем внутри map
 
-   const elements = todos.map((item) => {
+ {/*  const elements = todos.map((item) => {   */}
      
 
      {/*            
@@ -71,10 +82,10 @@ import TodoListItem from './todo-list-item'
          массив с id и массив с лстальными объектами
    */}
 
-     const { id, ...itemProps} = item;
+  {/*}   const { id, ...itemProps} = item;
 
      return (
-      <li key={id} className="list-group-item">
+     <li key={id} className="list-group-item">  */}
 
 
          {/*
@@ -95,7 +106,7 @@ import TodoListItem from './todo-list-item'
           аттрибута вместе со значением в item
 
          */}
-  
+         {/*}
 
          <TodoListItem {...itemProps} />
 
@@ -105,9 +116,9 @@ import TodoListItem from './todo-list-item'
    
 
     return (
-       <ul className="list-group">
+       <ul className="list-group todo-list">
 
-       {elements}    
+    {elements}    */}
 
       {/*
       {firstEl}
@@ -129,7 +140,7 @@ import TodoListItem from './todo-list-item'
           /> </li>
       */}
 
-      </ul>
+    {/*}  </ul>
 
 
     );	
@@ -138,3 +149,30 @@ import TodoListItem from './todo-list-item'
 
 
 export default TodoList;
+
+  */}
+
+
+
+
+  const TodoList = ({ todos }) => {
+  
+    const elements = todos.map((item) => {
+      const { id, ...itemProps } = item;
+  
+      return (
+        <li key={id} className="list-group-item">
+          <TodoListItem {...itemProps } />
+        </li>
+      );
+    });
+  
+    return (
+      <ul className="list-group todo-list">
+        { elements }
+      </ul>
+    );
+  };
+  
+  export default TodoList;
+  
