@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import './todo-list-item.css';
 
@@ -46,7 +46,24 @@ export default TodoListItem;
 // принимаем из todo-list.js параметры label и imortant
 // (деструктурируем их из props)
 
-const TodoListItem = ({ label, important = false }) => {
+
+// компонент-класс
+// Наследует свойства класса React.Component
+// export default переносим из нижней строчки сюда. 
+// Чтобы не писать полностью  React.Component -
+// добавляем выше в import Component
+
+export default class TodoListItem extends Component {
+
+  // функция отображает компонент
+  render()
+  {
+
+    // Получаем из друших компонентов props
+    // и записываем как поле класса 
+    // Затем деструктурируеем props, получаем переменные
+
+    const { label, important = false }  = this.props;
     
     // Если important задан true- то красный цвет, иначе- черный
     // important=true задаем в todo-list.js 
@@ -60,11 +77,15 @@ const TodoListItem = ({ label, important = false }) => {
 
       // Если хотим сделать универсальный элемент- 
     // который можем использовать в разных других- пишем
+    // onClick= {}
+    // При клике по элементу выводим его название.
+    // onClick = { () => console.log(`Нажат: ${label}`) }
   return (
     <span className="todo-list-item">
       <span
         className="todo-list-item-label"
-        style={style}>
+        style={style}
+        onClick = { () => console.log(`Нажат: ${label}`)}> 
         {label}
       </span>
 
@@ -81,4 +102,12 @@ const TodoListItem = ({ label, important = false }) => {
   );
 };
 
-export default TodoListItem;
+
+
+}
+
+
+
+//const TodoListItemFunc = ({ label, important = false }) => 
+
+// export default TodoListItem;
