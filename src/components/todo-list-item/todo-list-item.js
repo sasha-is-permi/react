@@ -55,6 +55,40 @@ export default TodoListItem;
 
 export default class TodoListItem extends Component {
 
+//  constructor() {
+//    super();
+//     this.onLabelClick = () => {
+//      console.log(`Done: ${this.props.label}`);
+//     };
+//  }
+
+  //  constructor() {
+  //    super();
+  //    this.state= {
+  //       done: false     
+  //    };
+  //  }
+
+
+  state= {
+       done: false,    
+       important: false 
+   };
+
+ onLabelClick = () => {
+   this.setState({
+      done: true
+   });
+   // console.log(`Done: ${this.props.label}`);
+   };
+
+  // onLabelClick(){
+  //   console.log(`Done: ${this.props.label}`);
+  // }
+
+
+   
+
   // функция отображает компонент
   render()
   {
@@ -63,7 +97,14 @@ export default class TodoListItem extends Component {
     // и записываем как поле класса 
     // Затем деструктурируеем props, получаем переменные
 
-    const { label, important = false }  = this.props;
+    const { label}  = this.props;
+
+    // с помощью деструктуризации из state поучаем done. 
+    const {done, important} = this.state  
+
+
+
+
     
     // Если important задан true- то красный цвет, иначе- черный
     // important=true задаем в todo-list.js 
@@ -74,18 +115,44 @@ export default class TodoListItem extends Component {
     color: important ? 'steelblue' : 'black',
     fontWeight: important ? 'bold' : 'normal'
   };
+  
+  // Переменная, к которой потом можно прибавить/убавить видимость 
+  // элемента (done)
+  let classNames = 'todo-list-item';
+   
+  // Если щелкнули по элементу (done из state изменилось-
+  // добавляем класс, обозначающий зачеркивание элемента )
+  if (done) {
+     classNames += ' done';    
+  }
+
+ // const style = {
+ //    color: important ? 'steelblue' : 'black',
+ //    fontWeight: important ? 'bold' : 'normal'
+ // };
+ 
+    // если важный элемент- добавляем класс 'important' - важный.
+    
+     if (important) {
+       classNames += 'important'
+     }
+
 
       // Если хотим сделать универсальный элемент- 
     // который можем использовать в разных других- пишем
     // onClick= {}
     // При клике по элементу выводим его название.
     // onClick = { () => console.log(`Нажат: ${label}`) }
+    // Затем заведем функцию, поместим в нее вызываемый метод.
+    // Передаем функцию (не вызываем её через (), а передаем)
+    // onClick = { this.onLabelClick }> 
   return (
-    <span className="todo-list-item">
+    // используем переменную classNames
+    <span className={classNames}>
       <span
         className="todo-list-item-label"
         style={style}
-        onClick = { () => console.log(`Нажат: ${label}`)}> 
+        onClick = { this.onLabelClick }> 
         {label}
       </span>
 
