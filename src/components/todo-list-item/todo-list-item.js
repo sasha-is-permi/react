@@ -75,25 +75,33 @@ export default class TodoListItem extends Component {
        important: false 
    };
 
- onLabelClick = () => {
-   this.setState({
-      done: true
-   });
-   // console.log(`Done: ${this.props.label}`);
-   };
 
   // onLabelClick(){
   //   console.log(`Done: ${this.props.label}`);
   // }
 
 
-   
+  onLabelClick = () => {
+    this.setState(({done}) => {
+      return {
+        done: !done
+      };
+    });
+  };
+
+  onMarkImportant = () => {
+    this.setState(({important}) => {
+      return {
+        important: !important
+      };
+    });
+  };
 
   // функция отображает компонент
   render()
   {
 
-    // Получаем из друших компонентов props
+    // Получаем из других компонентов props
     // и записываем как поле класса 
     // Затем деструктурируеем props, получаем переменные
 
@@ -134,8 +142,10 @@ export default class TodoListItem extends Component {
     // если важный элемент- добавляем класс 'important' - важный.
     
      if (important) {
-       classNames += 'important'
+       classNames += ' important'
      }
+
+
 
 
       // Если хотим сделать универсальный элемент- 
@@ -149,23 +159,23 @@ export default class TodoListItem extends Component {
   return (
     // используем переменную classNames
     <span className={classNames}>
-      <span
-        className="todo-list-item-label"
-        style={style}
-        onClick = { this.onLabelClick }> 
-        {label}
-      </span>
-
-      <button type="button"
-              className="btn btn-outline-success btn-sm float-right">
-        <i className="fa fa-exclamation" /> {/* иконка восклицательного знака- выделение важного элемента */}
-      </button>
-
-      <button type="button"
-              className="btn btn-outline-danger btn-sm float-right">
-        <i className="fa fa-trash-o" /> {/* иконка "удалить" */}
-      </button>
+    <span
+      className="todo-list-item-label"
+      onClick={ this.onLabelClick }>
+      {label}
     </span>
+
+    <button type="button"
+            className="btn btn-outline-success btn-sm float-right"
+            onClick={this.onMarkImportant}>
+      <i className="fa fa-exclamation" />
+    </button>
+
+    <button type="button"
+            className="btn btn-outline-danger btn-sm float-right">
+      <i className="fa fa-trash-o" />
+    </button>
+  </span>
   );
 };
 
@@ -174,7 +184,3 @@ export default class TodoListItem extends Component {
 }
 
 
-
-//const TodoListItemFunc = ({ label, important = false }) => 
-
-// export default TodoListItem;
