@@ -737,6 +737,27 @@ return ( <div>  */}
 
 // 38. Обновление состояния, зависящее от предыдущего состояния.
 
+// setState может быть асинхронной функцией. 
+// не правильно писать поэтому:
+// important : !this.state.important
+
+// используем функцию- чтобы react понимал что надо
+// брать последний state 
+// передаем state, деструктуризация:  {important}
+// this.setState(({important}) => {
+//   return {
+//     important: !important
+//   };
+// });
+
+// Если новое состояние не зависит от предыдущего- можно передавать в setState() объект
+//  this.setState({
+//   important:true
+// );
+//
+//
+// если зависит- функцию
+
 ReactDOM.render(<App/>,document.getElementById('root'));
 
 
