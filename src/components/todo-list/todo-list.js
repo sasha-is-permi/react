@@ -154,15 +154,24 @@ export default TodoList;
 
 
 
+{/* Из props получаем еще onDeleted (сверху из App)
 
-  const TodoList = ({ todos }) => {
+*/}
+  const TodoList = ({ todos,onDeleted }) => {
   
     const elements = todos.map((item) => {
       const { id, ...itemProps } = item;
-  
+  {/* // Теперь появилось новое свойтво- onDeleted()
+  // Внутри TodoListItem можно к нему обращаться 
+  // каждый раз когда пользователь нажал на кнопку удаления 
+  // (идем в TodoListItem и меняем его соответсвующим образом)
+  Удаляем элемент id
+  */}
       return (
         <li key={id} className="list-group-item">
-          <TodoListItem {...itemProps } />
+          <TodoListItem {...itemProps }
+          onDeleted={() => onDeleted(id)} 
+          />
         </li>
       );
     });

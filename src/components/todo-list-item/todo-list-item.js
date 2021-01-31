@@ -105,7 +105,7 @@ export default class TodoListItem extends Component {
     // и записываем как поле класса 
     // Затем деструктурируеем props, получаем переменные
 
-    const { label}  = this.props;
+    const { label,onDeleted}  = this.props;
 
     // с помощью деструктуризации из state поучаем done. 
     const {done, important} = this.state  
@@ -170,9 +170,21 @@ export default class TodoListItem extends Component {
             onClick={this.onMarkImportant}>
       <i className="fa fa-exclamation" />
     </button>
-
+    {/* Получаем с помощью props переданную из todo-list 
+    функцию onDeleted и запускаем её при нажатии на кнопку button 
     <button type="button"
-            className="btn btn-outline-danger btn-sm float-right">
+            className="btn btn-outline-danger btn-sm float-right"            
+            onClick={this.props.onDeleted}
+            > 
+            
+     Упростим код. Выше получаем из props  onDeleted и применяем ниже.     
+            */}
+
+
+       <button type="button"
+            className="btn btn-outline-danger btn-sm float-right"            
+            onClick={onDeleted}
+            >         
       <i className="fa fa-trash-o" />
     </button>
   </span>
