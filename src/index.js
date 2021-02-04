@@ -798,6 +798,71 @@ return ( <div>  */}
 
 // 41. setState() - добавление элемента. 
 
+// Создаем новый компонент
+// src/components/item-add-form (папочка)
+
+// Там файлы index.js: 
+
+// import ItemAddForm from './item-add-form';
+// export default ItemAddForm;
+
+// item-add-form.css:
+// .item-add-form {
+//   margin-top: 10px;
+// }
+
+// item-add-form.js: 
+
+// import React, { Component } from 'react';
+
+// import './item-add-form.css';
+
+// Компонент-класс 
+// (но можно было сделать и компонент-функцию)
+
+// export default class ItemAddForm extends Component {
+
+//  render() {
+//    return (
+//      <div className="item-add-form">
+//        <button
+//          className="btn btn-outline-secondary"
+//          onClick={() => this.props.onItemAdded('Hello World')}>
+//          Add Item
+//        </button>
+//     </div>
+//    )
+//  }
+// }
+
+
+// В  app.js импортируем новый компонент: 
+// import ItemAddForm from '../item-add-form';
+
+// Добавляем в функцию render():
+// <ItemAddForm onItemAdded={this.addItem}/>
+
+// А также выше render(): 
+// addItem = (text) => {
+//   // generate id ?
+//   const newItem = {
+//     label: text,
+//     important: false,
+//     id: this.maxId++
+//   };
+
+//   this.setState(({ todoData }) => {
+//     const newArr = [
+//       ...todoData,
+//       newItem
+//     ];
+
+//     return {
+//       todoData: newArr
+//     };
+//   });
+
+// };
 
 
 ReactDOM.render(<App/>,document.getElementById('root'));
