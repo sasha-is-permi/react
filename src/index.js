@@ -865,6 +865,33 @@ return ( <div>  */}
 // };
 
 
+// uuId - плагин для генерации id.
+// maxId = 100 - начинаем с этого id генерировать
+// Обычно id генерируется сервером.
+// тут для примера генерируем. 
+
+
+// addItem = (text) => {
+//    // generate id ?
+//    const newItem = {
+//      label: text,
+//      important: false,
+//      id: this.maxId++
+//    };
+
+//    this.setState(({ todoData }) => {
+//      const newArr = [
+//        ...todoData,
+//        newItem
+//      ];
+
+//      return {
+//        todoData: newArr
+//      };
+//    });
+
+//  };
+
 ReactDOM.render(<App/>,document.getElementById('root'));
 
 
