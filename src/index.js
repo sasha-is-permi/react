@@ -879,6 +879,7 @@ return ( <div>  */}
 //      id: this.maxId++
 //    };
 
+// 
 //    this.setState(({ todoData }) => {
 //      const newArr = [
 //        ...todoData,
@@ -891,6 +892,113 @@ return ( <div>  */}
 //    });
 
 //  };
+
+
+// maxId не находится в state, не влияет на состояние класса-
+// можно его менять как угодно. 
+
+// todoDatf вхождит в state, поэтому вместо него надо 
+// возвращать новый массив. 
+
+// this.setState(({ todoData }) => {
+//    const newArr = [
+//      ...todoData,
+//      newItem
+//    ];
+
+//    return {
+//      todoData: newArr
+//    };
+//  });
+
+// 42. Данные в react приложении.
+
+// Структура данных
+// <App>                     данные: todoData
+//     <AppHeader>  
+//     <TodoList>
+//         <TodoListItem>    данные: done, important
+
+// done,important нужно хранить тоже вместе с остальными.
+
+// Добавляем в app.js:
+
+// toggleProperty(arr, id, propName) {
+//    const idx = arr.findIndex((el) => el.id === id);
+
+//    const oldItem = arr[idx];
+//    const newItem = {...oldItem,
+//      [propName]: !oldItem[propName]};
+
+//    return [
+//      ...arr.slice(0, idx),
+//      newItem,
+//      ...arr.slice(idx + 1)
+//    ];
+//  }
+
+//  onToggleDone = (id) => {
+//    this.setState(({ todoData }) => {
+//      return {
+//        todoData: this.toggleProperty(todoData, id, 'done')
+//      };
+//    });
+//  };
+
+//  onToggleImportant = (id) => {
+//    this.setState(({ todoData }) => {
+//      return {
+//        todoData: this.toggleProperty(todoData, id, 'important')
+//      };
+//    });
+//  };
+
+// Передадим эти 2 созданные функции в TodoList:
+// <TodoList 
+// todos={this.state.todoData} 
+// onDeleted= { this.deleteItem }
+// onToggleImportant={this.onToggleImportant}
+// onToggleDone={this.onToggleDone}
+// />
+
+// TodoList получил 2 новых события (event)
+
+// В todo-list.js получаем их из props:
+// const TodoList = ({ todos,
+//   onDeleted,
+//   onToggleImportant,
+//   onToggleDone  })
+
+//  Когда элемент скажет что пользователь изменил его важность-
+//  вызываем onToggleImportant(id)
+// onToggleImportant={() => onToggleImportant(id)}
+// onToggleDone={() => onToggleDone(id)}
+
+// Два EventListner прошли от App к TodoList
+// Нужно передать их в TodoListItem. 
+
+// const { label, onDeleted,
+//    onToggleImportant,
+//    onToggleDone,
+//    important, done } = this.props;
+
+// Используем там эти 2 события:
+
+// return (
+//    // используем переменную classNames
+//    <span className={classNames}>
+//    <span
+//      className="todo-list-item-label"
+//      onClick={onToggleDone}>
+//      {label}
+//    </span>
+
+//    <button type="button"
+//            className="btn btn-outline-success btn-sm float-right"
+//            onClick={onToggleImportant}>
+//      <i className="fa fa-exclamation" />
+//    </button> )
+
 
 ReactDOM.render(<App/>,document.getElementById('root'));
 

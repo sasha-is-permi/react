@@ -104,8 +104,10 @@ export default class TodoListItem extends Component {
     // Получаем из других компонентов props
     // и записываем как поле класса 
     // Затем деструктурируеем props, получаем переменные
-
-    const { label,onDeleted}  = this.props;
+    
+    const { label, onDeleted,
+      onToggleImportant,
+      onToggleDone} = this.props;
 
     // с помощью деструктуризации из state поучаем done. 
     const {done, important} = this.state  
@@ -161,13 +163,13 @@ export default class TodoListItem extends Component {
     <span className={classNames}>
     <span
       className="todo-list-item-label"
-      onClick={ this.onLabelClick }>
+      onClick={onToggleDone}>
       {label}
     </span>
 
     <button type="button"
             className="btn btn-outline-success btn-sm float-right"
-            onClick={this.onMarkImportant}>
+            onClick={onToggleImportant}>
       <i className="fa fa-exclamation" />
     </button>
     {/* Получаем с помощью props переданную из todo-list 
