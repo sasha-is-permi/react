@@ -70,10 +70,10 @@ export default class TodoListItem extends Component {
   //  }
 
 
-  state= {
-       done: false,    
-       important: false 
-   };
+  // state= {
+  //      done: false,    
+  //      important: false 
+  //  };
 
 
   // onLabelClick(){
@@ -81,21 +81,21 @@ export default class TodoListItem extends Component {
   // }
 
 
-  onLabelClick = () => {
-    this.setState(({done}) => {
-      return {
-        done: !done
-      };
-    });
-  };
+  // onLabelClick = () => {
+  //   this.setState(({done}) => {
+  //     return {
+  //       done: !done
+  //     };
+  //   });
+  // };
 
-  onMarkImportant = () => {
-    this.setState(({important}) => {
-      return {
-        important: !important
-      };
-    });
-  };
+  // onMarkImportant = () => {
+  //   this.setState(({important}) => {
+  //     return {
+  //       important: !important
+  //     };
+  //   });
+  // };
 
   // функция отображает компонент
   render()
@@ -107,7 +107,9 @@ export default class TodoListItem extends Component {
     
     const { label, onDeleted,
       onToggleImportant,
-      onToggleDone} = this.props;
+      onToggleDone,
+      done, 
+      important} = this.props;
 
     // с помощью деструктуризации из state поучаем done. 
     const {done, important} = this.state  

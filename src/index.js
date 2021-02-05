@@ -1000,6 +1000,20 @@ return ( <div>  */}
 //    </button> )
 
 
+// TodoListItem- сейчас нет там своего state, 
+// берем его из App, также нет других функций.
+// Можно превратить его обратно из компонент-класса в 
+// компонент-функцию. 
+
+// Из App   state --> TodoList в качестве props  --->
+// --> TodoListItem принимает state с помощью props. 
+
+// Из TodoListItem в App приходит событие- что important 
+// или done изменился. 
+// App меняет свой state и возвращает данные TodoListItem 
+
+
+
 ReactDOM.render(<App/>,document.getElementById('root'));
 
 
